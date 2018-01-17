@@ -1,0 +1,20 @@
+-- under non-threaded script
+
+if (simGetScriptExecutionCount()==0) then
+	local pointSize=12
+	local pts={}
+	local cols={}
+	for i=0,9,1 do
+		for j=0,9,1 do
+			for k=0,9,1 do
+				pts[3*(i+10*j+100*k)+1]=i*0.1
+				pts[3*(i+10*j+100*k)+2]=j*0.1
+				pts[3*(i+10*j+100*k)+3]=k*0.1
+				cols[3*(i+10*j+100*k)+1]=i*255/9
+				cols[3*(i+10*j+100*k)+2]=j*255/9
+				cols[3*(i+10*j+100*k)+3]=k*255/9
+			end
+		end
+	end
+	simAddPointCloud(0,255,-1,0,pointSize,pts,nil,cols,nil)
+end
